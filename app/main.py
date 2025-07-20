@@ -27,7 +27,6 @@ if st.button("Generate catalogue entry") and site_name and user_file and img_fil
 
     # 2) load model (cached by Streamlit)
     model, processor = load_scribe(
-        os.getenv("MODEL_DIR", "models/gemma-3n"),
         "cuda" if torch.cuda.is_available() else "cpu",
     )
     scribe = HeritageScribe(model, processor)
