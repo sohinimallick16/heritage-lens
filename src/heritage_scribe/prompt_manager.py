@@ -1,13 +1,15 @@
-import os
+# src/heritage_scribe/prompt_manager.py
+from pathlib import Path
 
-# load at import time
-_BASE_PATH = os.path.join(os.path.dirname(__file__), "templates", "base_prompt.txt")
-with open(_BASE_PATH, "r", encoding="utf-8") as f:
-    BASE_PROMPT = f.read()
+# load once at import
+BASE_PROMPT = Path(__file__).resolve().parents[2] / "templates" / "base_prompt.txt"
+BASE_PROMPT = BASE_PROMPT.read_text(encoding="utf-8")
 
-def merge(site_type: str, object_type: str, user_prompt: str) -> str:
+def merge(site_name: str, object_type: str, user_prompt: str) -> str:
     """
-    Fill in the base template and append the user’s custom prompt.
+    Substitute only the two fields you collect from the user,
+    leaving the rest for the model to fill.
     """
-    filled = BASE_PROMPT.format(site_type=site_type, object_type=object_type)
+    filled = BASE_PROMPT.replace("{site_name}", site_name)\
+                        .replace("{object_type}", object_type)
     return f"{filled}\n\n{user_prompt}"
