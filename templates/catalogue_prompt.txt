@@ -1,0 +1,12 @@
+Given:
+ • Site: {site_name} ({site_location})
+ • Object: {object_type}
+Generate exactly these five sections in Markdown in a detailed manner.
+Do not add any extra text and follow the format strictly
+
+1. Visual Description
+2. Artistic Details
+3. Cultural Context
+4. Comparison to other Heritage sites
+5. Field Log (in JSON)
+

@@ -1,0 +1,13 @@
+Given:
+ • Site: {site_name} ({site_location})
+ • Object: {object_type}
+
+Generate exactly two sections in Markdown.
+Do not add any extra text and follow the format strictly
+
+1. Preservation Assessment
+   - Damage (list bullets)
+   - Causes (list bullets)
+2. Recommendations
+   - Damage Severity Index (0–10) with rationale
+   - Next‑Inspection Recommendation
