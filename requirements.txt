@@ -1,8 +1,7 @@
 torch
 transformers
-streamlit
-Pillow
-accelerate
-timm
+gradio
 unsloth
-sentencepiece
+Pillow
+accelerate  
+timm        

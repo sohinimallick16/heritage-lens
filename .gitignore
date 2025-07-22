@@ -1,5 +1,6 @@
 test/
 unsloth_compiled_cache/
+streamlit/
 old/
 __pycache__/
 *.pyc

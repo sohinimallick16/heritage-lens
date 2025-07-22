@@ -1,14 +1,16 @@
 # helpers/utils/io_manager.py
-import tempfile
+import tempfile, os
 from pathlib import Path
 from PIL import Image
 
 class IOManager:
     @staticmethod
     def save_tmp(uploaded_file) -> str:
-        """
-        Save a Streamlit UploadFile to a temp file and return its path.
-        """
+    # If Gradio already gave us a filepath, just return it
+        if isinstance(uploaded_file, str) and os.path.isfile(uploaded_file):
+            return uploaded_file
+
+            # Otherwise assume it's a file‐like (with .name & .read())
         suffix = Path(uploaded_file.name).suffix
         tmp = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
         tmp.write(uploaded_file.read())

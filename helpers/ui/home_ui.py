@@ -1,13 +1,13 @@
 # helpers/ui/home_ui.py
-import streamlit as st
+import gradio as gr
 
 def show_home():
-    st.title("🏛️ Heritage Lens")
-    st.markdown(
+    gr.Markdown("## 🏛️ HeritageScribe")
+    gr.Markdown(
         """
-        Welcome to Heritage Lens—your AI companion for creating rich,
+        Welcome to **HeritageScribe**—your AI companion for creating rich,
         factual catalogue entries of archaeological sites and artworks.
-        Use the “Generate” tab to upload an image and get started!
-        """,
-        unsafe_allow_html=True
+
+        Use the **Generate** tab to upload an image and get started!
+        """.strip()
     )
