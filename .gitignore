@@ -1,10 +1,10 @@
 test/
+unsloth_compiled_cache/
+old/
 __pycache__/
 *.pyc
 .env
 .vscode/
 .DS_Store
 *.log
-# ignore all model files locally
-models/gemma-3n-e4b-it/
-unsloth_compiled_cache/
+
