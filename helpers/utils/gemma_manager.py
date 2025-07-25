@@ -1,6 +1,5 @@
 # helpers/utils/gemma_manager.py
-
-#import spaces
+import spaces
 from functools import lru_cache
 import torch, gc, threading
 from unsloth import FastModel
@@ -13,8 +12,8 @@ torch._dynamo.config.recompile_limit  = 1_000
 # --- your model checkpoint ---
 MODEL_ID = "unsloth/gemma-3n-E2B-it"
 
-#@spaces.GPU  # ZeroGPU will allocate/release an NVIDIA H200 for this function
-@lru_cache(maxsize=1)
+@spaces.GPU  # ZeroGPU will allocate/release an NVIDIA H200 for this function
+#@lru_cache(maxsize=1)
 def load_gemma_manager():
     """
     Load the Gemma model and processor, returning a GemmaManager.
@@ -42,7 +41,7 @@ class GemmaManager:
         self.processor = processor
         self.last_md   = ""
 
-    #@spaces.GPU(timeout=300)  # decorate inference to get a GPU slice during generation
+    @spaces.GPU(timeout=300)  # decorate inference to get a GPU slice during generation
     def stream_annotate(
         self,
         image_path: str,
